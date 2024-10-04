@@ -3,6 +3,7 @@ import { GiFruitBowl } from "react-icons/gi";
 import { PiShoppingCartSimpleFill } from "react-icons/pi";
 import { IoMdMenu } from "react-icons/io";
 import ResponsiveMenu from './ResponsiveMenu';
+import { motion } from 'framer-motion';
 const NavbarMenu = [
     {
         id: 1,
@@ -36,7 +37,12 @@ function Navbar() {
   return (
     <>
         <nav>
-            <div className="container flex justify-between items-center py-4 md:pt-4 ">
+            <motion.div 
+                initial = {{ opacity: 0}}
+                animate = {{ opacity: 1 }}
+                transition={{ duration : 0.5, delay: 0.5 }}
+                className="container flex justify-between items-center py-4 md:pt-4 "
+            >
                 {/* Logo Section */}
                 <div className=' text-2xl flex items-center gap-2 font-bold uppercase '>
                     <p className=' text-primary'>Jim's</p>
@@ -67,7 +73,7 @@ function Navbar() {
                     <IoMdMenu className=' text-4xl ' />
                 </div>
 
-            </div>
+            </motion.div>
         </nav>
         {/* Mobile menu Section */}
         <ResponsiveMenu open={open} />
